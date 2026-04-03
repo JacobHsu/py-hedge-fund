@@ -1,0 +1,50 @@
+name: Weekly Mag7 Report
+
+on:
+  schedule:
+    # 每週一 10:00 AM EDT (UTC 14:00) — 美股開盤後 30 分鐘
+    # 夏令時間 EDT = UTC-4，冬令時間 EST = UTC-5
+    # 夏令 (3~11月): UTC 14:00 = 10:00 AM EDT
+    # 冬令 (11~3月): UTC 15:00 = 10:00 AM EST → 手動調整 cron
+    - cron: '0 14 * * 1'
+  workflow_dispatch:  # 允許手動觸發
+
+permissions:
+  contents: write
+
+jobs:
+  generate-report:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Poetry
+        run: pip install poetry
+
+      - name: Install dependencies
+        run: poetry install --no-interaction --no-root
+
+      - name: Generate Mag7 report
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          PYTHONIOENCODING: utf-8
+        run: |
+          poetry run python src/main.py \
+            --tickers AAPL,GOOGL,MSFT,NVDA,TSLA \
+            --core \
+            --report
+
+      - name: Commit & push report
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/Mag7.html
+          git diff --cached --quiet || git commit -m "report: Mag7 $(date -u +'%Y-%m-%d')"
+          git push

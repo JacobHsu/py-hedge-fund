@@ -1,0 +1,40 @@
+{
+  "name": "Core Analysts - 免費股票",
+  "description": "精選 9 位核心分析師，輸入 AAPL/GOOGL/MSFT/NVDA/TSLA 後點 Run 執行",
+  "nodes": [
+    {"id":"stock-analyzer-node_core01","type":"stock-analyzer-node","position":{"x":0,"y":400},"data":{"name":"Stock Analyzer","description":"輸入股票代碼","status":"Idle"}},
+    {"id":"aswath_damodaran_core01","type":"agent-node","position":{"x":320,"y":0},"data":{"name":"Aswath Damodaran","description":"學術 DCF 估值","status":"Idle"}},
+    {"id":"nassim_taleb_core01","type":"agent-node","position":{"x":320,"y":110},"data":{"name":"Nassim Taleb","description":"尾部風險","status":"Idle"}},
+    {"id":"stanley_druckenmiller_core01","type":"agent-node","position":{"x":320,"y":220},"data":{"name":"Stanley Druckenmiller","description":"動量 + 宏觀","status":"Idle"}},
+    {"id":"michael_burry_core01","type":"agent-node","position":{"x":320,"y":330},"data":{"name":"Michael Burry","description":"深度逆向價值","status":"Idle"}},
+    {"id":"mohnish_pabrai_core01","type":"agent-node","position":{"x":320,"y":440},"data":{"name":"Mohnish Pabrai","description":"下行保護","status":"Idle"}},
+    {"id":"peter_lynch_core01","type":"agent-node","position":{"x":320,"y":550},"data":{"name":"Peter Lynch","description":"GARP 成長","status":"Idle"}},
+    {"id":"warren_buffett_core01","type":"agent-node","position":{"x":320,"y":660},"data":{"name":"Warren Buffett","description":"護城河價值","status":"Idle"}},
+    {"id":"valuation_analyst_core01","type":"agent-node","position":{"x":320,"y":770},"data":{"name":"Valuation Analyst","description":"四方法集成估值","status":"Idle"}},
+    {"id":"technical_analyst_core01","type":"agent-node","position":{"x":320,"y":880},"data":{"name":"Technical Analyst","description":"純技術分析","status":"Idle"}},
+    {"id":"portfolio_manager_core01","type":"portfolio-manager-node","position":{"x":700,"y":400},"data":{"name":"Portfolio Manager","description":"最終交易決策","status":"Idle"}},
+    {"id":"investment-report-node_core01","type":"investment-report-node","position":{"x":1000,"y":400},"data":{"name":"Investment Report","description":"分析報告","status":"Idle"}}
+  ],
+  "edges": [
+    {"id":"e_sa_ad","source":"stock-analyzer-node_core01","target":"aswath_damodaran_core01"},
+    {"id":"e_sa_nt","source":"stock-analyzer-node_core01","target":"nassim_taleb_core01"},
+    {"id":"e_sa_sd","source":"stock-analyzer-node_core01","target":"stanley_druckenmiller_core01"},
+    {"id":"e_sa_mb","source":"stock-analyzer-node_core01","target":"michael_burry_core01"},
+    {"id":"e_sa_mp","source":"stock-analyzer-node_core01","target":"mohnish_pabrai_core01"},
+    {"id":"e_sa_pl","source":"stock-analyzer-node_core01","target":"peter_lynch_core01"},
+    {"id":"e_sa_wb","source":"stock-analyzer-node_core01","target":"warren_buffett_core01"},
+    {"id":"e_sa_va","source":"stock-analyzer-node_core01","target":"valuation_analyst_core01"},
+    {"id":"e_sa_ta","source":"stock-analyzer-node_core01","target":"technical_analyst_core01"},
+    {"id":"e_ad_pm","source":"aswath_damodaran_core01","target":"portfolio_manager_core01"},
+    {"id":"e_nt_pm","source":"nassim_taleb_core01","target":"portfolio_manager_core01"},
+    {"id":"e_sd_pm","source":"stanley_druckenmiller_core01","target":"portfolio_manager_core01"},
+    {"id":"e_mb_pm","source":"michael_burry_core01","target":"portfolio_manager_core01"},
+    {"id":"e_mp_pm","source":"mohnish_pabrai_core01","target":"portfolio_manager_core01"},
+    {"id":"e_pl_pm","source":"peter_lynch_core01","target":"portfolio_manager_core01"},
+    {"id":"e_wb_pm","source":"warren_buffett_core01","target":"portfolio_manager_core01"},
+    {"id":"e_va_pm","source":"valuation_analyst_core01","target":"portfolio_manager_core01"},
+    {"id":"e_ta_pm","source":"technical_analyst_core01","target":"portfolio_manager_core01"},
+    {"id":"e_pm_ir","source":"portfolio_manager_core01","target":"investment-report-node_core01"}
+  ],
+  "viewport": {"x": 50, "y": 0, "zoom": 0.7}
+}

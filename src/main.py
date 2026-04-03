@@ -1,5 +1,10 @@
 import sys
 
+if sys.stdout.encoding and sys.stdout.encoding.lower() not in ("utf-8", "utf-16"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+if sys.stderr.encoding and sys.stderr.encoding.lower() not in ("utf-8", "utf-16"):
+    sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+
 from dotenv import load_dotenv
 from langchain_core.messages import HumanMessage
 from langgraph.graph import END, StateGraph
@@ -9,6 +14,7 @@ from src.agents.portfolio_manager import portfolio_management_agent
 from src.agents.risk_manager import risk_management_agent
 from src.graph.state import AgentState
 from src.utils.display import print_trading_output
+from src.utils.report import write_trading_output_html
 from src.utils.analysts import ANALYST_ORDER, get_analyst_nodes
 from src.utils.progress import progress
 from src.utils.visualize import save_graph_as_png
@@ -177,3 +183,5 @@ if __name__ == "__main__":
         model_provider=inputs.model_provider,
     )
     print_trading_output(result)
+    if inputs.report_path:
+        write_trading_output_html(result, inputs.report_path)

@@ -115,20 +115,70 @@ poetry install
 ```
 
 #### 執行 AI 對沖基金
+
+**最快上手（推薦）：**
+
+使用 `--core` 旗標，自動載入 9 位精選分析師 + 預設模型（llama-3.3-70b-versatile），無需互動選單：
+
 ```bash
-poetry run python src/main.py --ticker AAPL,MSFT,NVDA
+poetry run python src/main.py --tickers AAPL --core
+```
+
+**免費股票代碼**：`AAPL`、`GOOGL`、`MSFT`、`NVDA`、`TSLA` 無需 API 金鑰。
+
+---
+
+**完整指令說明：**
+
+| 旗標 | 說明 | 範例 |
+|------|------|------|
+| `--tickers` | 股票代碼（逗號分隔） | `--tickers AAPL,MSFT,NVDA` |
+| `--core` | 精選 9 位核心分析師，使用預設模型，無互動選單 | `--core` |
+| `--analysts-all` | 使用全部分析師 | `--analysts-all` |
+| `--analysts` | 指定特定分析師 | `--analysts warren_buffett,valuation_analyst` |
+| `--model` | 指定 LLM 模型 | `--model llama-3.3-70b-versatile` |
+| `--start-date` | 分析起始日期 | `--start-date 2024-01-01` |
+| `--end-date` | 分析結束日期 | `--end-date 2024-03-31` |
+| `--show-reasoning` | 顯示每位分析師的推理過程 | `--show-reasoning` |
+| `--ollama` | 使用本地 Ollama 模型 | `--ollama` |
+
+**`--core` 精選分析師清單：**
+
+| 分析師 | 投資風格 |
+|--------|----------|
+| Aswath Damodaran | 學術 DCF 估值 |
+| Nassim Taleb | 尾部風險 / 反脆弱 |
+| Stanley Druckenmiller | 動量 + 宏觀 |
+| Michael Burry | 深度逆向價值 |
+| Mohnish Pabrai | 下行保護 |
+| Peter Lynch | GARP 成長 |
+| Warren Buffett | 護城河價值 |
+| Valuation Analyst | 四方法集成估值 |
+| Technical Analyst | 純技術分析 |
+
+**常用指令範例：**
+
+```bash
+# 精選分析師，分析 AAPL（最推薦）
+poetry run python src/main.py --tickers AAPL,GOOGL,MSFT,NVDA,TSLA  --core
+
+# 指定日期區間
+poetry run python src/main.py --tickers AAPL --core --start-date 2024-01-01 --end-date 2024-03-31
+
+# 同時分析多支股票
+poetry run python src/main.py --tickers AAPL,MSFT,NVDA --core
+
+# 指定特定分析師
+poetry run python src/main.py --tickers AAPL --analysts warren_buffett,valuation_analyst --model llama-3.3-70b-versatile
+
+# 顯示推理過程
+poetry run python src/main.py --tickers AAPL --core --show-reasoning
 ```
 
 您也可以加上 `--ollama` 旗標，使用本地 LLM 執行：
 
 ```bash
-poetry run python src/main.py --ticker AAPL,MSFT,NVDA --ollama
-```
-
-您可以選擇性地指定開始與結束日期，以針對特定時間段進行決策分析：
-
-```bash
-poetry run python src/main.py --ticker AAPL,MSFT,NVDA --start-date 2024-01-01 --end-date 2024-03-01
+poetry run python src/main.py --tickers AAPL,MSFT,NVDA --ollama
 ```
 
 #### 執行回測器
@@ -143,11 +193,60 @@ poetry run python src/backtester.py --ticker AAPL,MSFT,NVDA
 
 ### 🖥️ 網頁應用程式
 
-執行 AI 對沖基金的新方式是透過我們的網頁應用程式，提供更友善的使用者介面。建議不熟悉命令列工具的使用者採用此方式。
-
-詳細的安裝與執行說明請參閱[這裡](https://github.com/virattt/ai-hedge-fund/tree/main/app)。
+提供圖形化介面，適合不熟悉命令列的使用者。
 
 <img width="1721" alt="Screenshot 2025-06-28 at 6 41 03 PM" src="https://github.com/user-attachments/assets/b95ab696-c9f4-416c-9ad1-51feb1f5374b" />
+
+#### 快速啟動
+
+**Windows（PowerShell）：**
+```powershell
+cd app
+.\run.bat
+```
+
+**macOS / Linux：**
+```bash
+cd app
+./run.sh
+```
+
+啟動後自動開啟瀏覽器，或手動開啟：
+- 網頁介面：http://localhost:5173
+- 後端 API：http://localhost:8000
+- API 文件：http://localhost:8000/docs
+
+> **前置需求**：[Node.js](https://nodejs.org/)、Python 3、Poetry
+
+---
+
+#### 手動啟動（開發者）
+
+開兩個終端機分別執行：
+
+**終端機 1 — 後端：**
+```bash
+cd app/backend
+poetry run uvicorn main:app --reload
+```
+
+**終端機 2 — 前端：**
+```bash
+cd app/frontend
+npm install
+npm run dev
+```
+
+---
+
+#### 常見問題
+
+| 問題 | 解決方式 |
+|------|----------|
+| `Command not found: uvicorn` | `cd app/backend && poetry install` |
+| Python 版本問題 | 建議使用 Python 3.11，3.13+ 可能有相容性問題 |
+| Port 已被佔用 | `pkill -f "uvicorn\|vite"` 或修改 port 設定 |
+| 找不到 `.env` | `cp .env.example .env` 並填入 API 金鑰 |
 
 ## 如何貢獻
 

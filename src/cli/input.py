@@ -22,6 +22,8 @@ def add_common_args(
 ) -> argparse.ArgumentParser:
     parser.add_argument(
         "--tickers",
+        "--ticker",
+        dest="tickers",
         type=str,
         required=require_tickers,
         help="Comma-separated list of stock ticker symbols (e.g., AAPL,MSFT,GOOGL)",
@@ -37,6 +39,12 @@ def add_common_args(
             "--analysts-all",
             action="store_true",
             help="Use all available analysts (overrides --analysts)",
+        )
+        parser.add_argument(
+            "--core",
+            action="store_true",
+            dest="run_all",
+            help="Use curated core analysts with default model (llama-3.3-70b-versatile), no interactive prompts",
         )
     if include_ollama:
         parser.add_argument("--ollama", action="store_true", help="Use Ollama for local LLM inference")
@@ -77,24 +85,9 @@ def select_analysts(flags: dict | None = None) -> list[str]:
     if flags and flags.get("analysts"):
         return [a.strip() for a in flags["analysts"].split(",") if a.strip()]
 
-    choices = questionary.checkbox(
-        "Select your AI analysts.",
-        choices=[questionary.Choice(display, value=value) for display, value in ANALYST_ORDER],
-        instruction="\n\nInstructions: \n1. Press Space to select/unselect analysts.\n2. Press 'a' to select/unselect all.\n3. Press Enter when done.",
-        validate=lambda x: len(x) > 0 or "You must select at least one analyst.",
-        style=questionary.Style(
-            [
-                ("checkbox-selected", "fg:green"),
-                ("selected", "fg:green noinherit"),
-                ("highlighted", "noinherit"),
-                ("pointer", "noinherit"),
-            ]
-        ),
-    ).ask()
-
-    if not choices:
-        print("\n\nInterrupt received. Exiting...")
-        sys.exit(0)
+    # Default: use all analysts without prompting
+    print(f"\nNo analysts specified, using all analysts by default.\n")
+    choices = [a[1] for a in ANALYST_ORDER]
 
     print(
         f"\nSelected analysts: {', '.join(Fore.GREEN + c.title().replace('_', ' ') + Style.RESET_ALL for c in choices)}\n"
@@ -150,6 +143,13 @@ def select_model(use_ollama: bool, model_flag: str | None = None) -> tuple[str, 
             f"\nSelected {Fore.CYAN}Ollama{Style.RESET_ALL} model: {Fore.GREEN + Style.BRIGHT}{model_name}{Style.RESET_ALL}\n"
         )
     else:
+        # Default: use llama-3.3-70b-versatile (Groq) without prompting
+        default_model_name = "llama-3.3-70b-versatile"
+        model = find_model_by_name(default_model_name)
+        if model:
+            print(f"\nNo model specified, using default: {Fore.CYAN}{model.provider.value}{Style.RESET_ALL} - {Fore.GREEN + Style.BRIGHT}{model.model_name}{Style.RESET_ALL}\n")
+            return model.model_name, model.provider.value
+
         model_choice = questionary.select(
             "Select your LLM model:",
             choices=[questionary.Choice(display, value=(name, provider)) for display, name, provider in LLM_ORDER],
@@ -221,6 +221,7 @@ class CLIInputs:
     margin_requirement: float
     show_reasoning: bool = False
     show_agent_graph: bool = False
+    report_path: Optional[str] = None
     raw_args: Optional[argparse.Namespace] = None
 
 
@@ -260,15 +261,44 @@ def parse_cli_inputs(
     if include_graph_flag:
         parser.add_argument("--show-agent-graph", action="store_true", help="Show the agent graph")
 
+    parser.add_argument(
+        "--report",
+        type=str,
+        nargs="?",
+        const="docs/Mag7.html",
+        default=None,
+        help="Save report as markdown (default: docs/Mag7.md)",
+    )
+
     args = parser.parse_args()
 
     # Normalize parsed values
     tickers = parse_tickers(getattr(args, "tickers", None))
-    selected_analysts = select_analysts({
-        "analysts_all": getattr(args, "analysts_all", False),
-        "analysts": getattr(args, "analysts", None),
-    })
-    model_name, model_provider = select_model(getattr(args, "ollama", False), getattr(args, "model", None))
+
+    CORE_ANALYSTS = [
+        "aswath_damodaran",
+        "nassim_taleb",
+        "stanley_druckenmiller",
+        "michael_burry",
+        "mohnish_pabrai",
+        "peter_lynch",
+        "warren_buffett",
+        "valuation_analyst",
+        "technical_analyst",
+    ]
+
+    run_core = getattr(args, "run_all", False)
+    if run_core:
+        selected_analysts = CORE_ANALYSTS
+    else:
+        selected_analysts = select_analysts({
+            "analysts_all": getattr(args, "analysts_all", False),
+            "analysts": getattr(args, "analysts", None),
+        })
+    model_name, model_provider = select_model(
+        getattr(args, "ollama", False),
+        getattr(args, "model", None) or ("llama-3.3-70b-versatile" if run_core else None),
+    )
     start_date, end_date = resolve_dates(getattr(args, "start_date", None), getattr(args, "end_date", None), default_months_back=default_months_back)
 
     return CLIInputs(
@@ -282,6 +312,7 @@ def parse_cli_inputs(
         margin_requirement=getattr(args, "margin_requirement", 0.0),
         show_reasoning=getattr(args, "show_reasoning", False),
         show_agent_graph=getattr(args, "show_agent_graph", False),
+        report_path=getattr(args, "report", None),
         raw_args=args,
     )
 
