@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Hedge Fund — 2026-04-03 23:09</title>
+  <title>AI Hedge Fund — 2026-04-04 01:43</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -50,75 +50,339 @@
 <body>
   <header>
     <h1>📈 AI Hedge Fund Report</h1>
-    <time>2026-04-03 23:09</time>
+    <time>2026-04-04 01:43</time>
   </header>
   <div class="tabs">
-    <button class="tab-btn active" onclick="showTab(event,'tab-summary')">📊 Summary</button><button class="tab-btn" onclick="showTab(event,'tab-AAPL')">AAPL</button>
+    <button class="tab-btn active" onclick="showTab(event,'tab-summary')">📊 Summary</button><button class="tab-btn" onclick="showTab(event,'tab-AAPL')">AAPL</button><button class="tab-btn" onclick="showTab(event,'tab-GOOGL')">GOOGL</button><button class="tab-btn" onclick="showTab(event,'tab-MSFT')">MSFT</button><button class="tab-btn" onclick="showTab(event,'tab-NVDA')">NVDA</button><button class="tab-btn" onclick="showTab(event,'tab-TSLA')">TSLA</button>
   </div>
   <div id="tab-summary" class="tab-panel active"><pre>
 <span style="color: #F5F1DE"></span><span style="font-weight: bold; color: #F5F1DE">PORTFOLIO SUMMARY:</span>
 +----------+----------+------------+--------------+-----------+-----------+-----------+
 | <span style="color: #F5F1DE">Ticker   |  Action  |   Quantity |   Confidence |  Bullish  |  Bearish  |  Neutral  |
 +==========+==========+============+==============+===========+===========+===========+
-| </span><span style="color: #00aaaa">AAPL</span>     |   <span style="color: #aa5500">HOLD</span>   |          <span style="color: #aa5500">0</span> |         <span style="color: #F5F1DE">0.0%</span> |     <span style="color: #00aa00">0</span>     |     <span style="color: #aa0000">1</span>     |     <span style="color: #aa5500">7</span>     |
+| </span><span style="color: #00aaaa">AAPL</span>     |   <span style="color: #aa5500">HOLD</span>   |          <span style="color: #aa5500">0</span> |       <span style="color: #F5F1DE">100.0%</span> |     <span style="color: #00aa00">2</span>     |     <span style="color: #aa0000">4</span>     |     <span style="color: #aa5500">1</span>     |
++----------+----------+------------+--------------+-----------+-----------+-----------+
+| <span style="color: #00aaaa">GOOGL</span>    |   <span style="color: #aa5500">HOLD</span>   |          <span style="color: #aa5500">0</span> |       <span style="color: #F5F1DE">100.0%</span> |     <span style="color: #00aa00">2</span>     |     <span style="color: #aa0000">2</span>     |     <span style="color: #aa5500">3</span>     |
++----------+----------+------------+--------------+-----------+-----------+-----------+
+| <span style="color: #00aaaa">MSFT</span>     |   <span style="color: #aa5500">HOLD</span>   |          <span style="color: #aa5500">0</span> |       <span style="color: #F5F1DE">100.0%</span> |     <span style="color: #00aa00">2</span>     |     <span style="color: #aa0000">1</span>     |     <span style="color: #aa5500">4</span>     |
++----------+----------+------------+--------------+-----------+-----------+-----------+
+| <span style="color: #00aaaa">NVDA</span>     |   <span style="color: #aa5500">HOLD</span>   |          <span style="color: #aa5500">0</span> |       <span style="color: #F5F1DE">100.0%</span> |     <span style="color: #00aa00">6</span>     |     <span style="color: #aa0000">0</span>     |     <span style="color: #aa5500">1</span>     |
++----------+----------+------------+--------------+-----------+-----------+-----------+
+| <span style="color: #00aaaa">TSLA</span>     |   <span style="color: #aa5500">HOLD</span>   |          <span style="color: #aa5500">0</span> |       <span style="color: #F5F1DE">100.0%</span> |     <span style="color: #00aa00">1</span>     |     <span style="color: #aa0000">4</span>     |     <span style="color: #aa5500">2</span>     |
 +----------+----------+------------+--------------+-----------+-----------+-----------+
 
 <span style="color: #F5F1DE"></span><span style="font-weight: bold; color: #F5F1DE">Portfolio Strategy:</span>
-<span style="color: #00aaaa">Default decision: hold</span>
+<span style="color: #00aaaa">No valid trade available</span>
 </pre></div><div id="tab-AAPL" class="tab-panel"><pre>
 <span style="color: #F5F1DE"></span><span style="font-weight: bold; color: #F5F1DE">AGENT ANALYSIS:</span> [<span style="color: #00aaaa">AAPL</span>]
 +-----------------------+----------+--------------+--------------------------------------------------------------+
 | <span style="color: #F5F1DE">Agent                 |  Signal  |   Confidence | Reasoning                                                    |
 +=======================+==========+==============+==============================================================+
-| </span><span style="color: #00aaaa">Technical Analyst</span>     | <span style="color: #aa5500">NEUTRAL</span>  |          <span style="color: #F5F1DE">12%</span> | <span style="color: #F5F1DE">{ "trend_following": { "signal": "bearish", "confidence":    |
-|                       |          |              | 21, "metrics": { "adx": 20.7228169535625, "trend_strength":  |
-|                       |          |              | 0.207228169535625 } }, "mean_reversion": { "signal":         |
-|                       |          |              | "neutral", "confidence": 50, "metrics": { "z_score":         |
-|                       |          |              | -0.49863894797144254, "price_vs_bb": 0.6498645506976307,     |
-|                       |          |              | "rsi_14": 59.415584415584405, "rsi_28": 42.752189884148045 } |
-|                       |          |              | }, "momentum": { "signal": "neutral", "confidence": 50,      |
-|                       |          |              | "metrics": { "momentum_1m": -0.02392896056169591,            |
-|                       |          |              | "momentum_3m": 0.0, "momentum_6m": 0.0, "volume_momentum":   |
-|                       |          |              | 0.7719556611042523 } }, "volatility": { "signal": "neutral", |
-|                       |          |              | "confidence": 50, "metrics": { "historical_volatility":      |
-|                       |          |              | 0.19568584934901173, "volatility_regime": 0.0,               |
-|                       |          |              | "volatility_z_score": 0.0, "atr_ratio": 0.020120685035502153 |
-|                       |          |              | } }, "statistical_arbitrage": { "signal": "neutral",         |
-|                       |          |              | "confidence": 50, "metrics": { "hurst_exponent":             |
-|                       |          |              | 4.4162737839765496e-15, "skewness": 0.0, "kurtosis": 0.0 } } |
-|                       |          |              | }</span>                                                            |
+| </span><span style="color: #00aaaa">Warren Buffett</span>        | <span style="color: #00aa00">BULLISH</span>  |          <span style="color: #F5F1DE">90%</span> | <span style="color: #F5F1DE">Strong moat</span>                                                  |
 +-----------------------+----------+--------------+--------------------------------------------------------------+
-| <span style="color: #00aaaa">Aswath Damodaran</span>      | <span style="color: #aa5500">NEUTRAL</span>  |         <span style="color: #F5F1DE">0.0%</span> | <span style="color: #F5F1DE">Parsing error; defaulting to neutral</span>                         |
+| <span style="color: #00aaaa">Peter Lynch</span>           | <span style="color: #00aa00">BULLISH</span>  |        <span style="color: #F5F1DE">70.0%</span> | <span style="color: #F5F1DE">I'm feeling pretty good about AAPL, folks. My kids love      |
+|                       |          |              | their iPhones and iPads, and it seems like everyone I know   |
+|                       |          |              | has one. The growth analysis shows a moderate EPS growth of  |
+|                       |          |              | 21.6%, which is nothing to sneeze at. Now, I know the        |
+|                       |          |              | debt-to-equity ratio is a bit high at 1.34, but the          |
+|                       |          |              | company's got a strong operating margin of 31.9% and plenty  |
+|                       |          |              | of free cash flow - nearly $99 billion. That's a lot of      |
+|                       |          |              | dough. The PEG ratio isn't provided, but if I had to guess,  |
+|                       |          |              | I'd say it's reasonable given the company's steady growth. I |
+|                       |          |              | think AAPL's got 'ten-bagger' potential in the long run, but |
+|                       |          |              | we'll have to keep an eye on that debt. Overall, I'm bullish |
+|                       |          |              | on AAPL, but I'm not going to bet the farm on it just yet.</span>   |
 +-----------------------+----------+--------------+--------------------------------------------------------------+
-| <span style="color: #00aaaa">Mohnish Pabrai</span>        | <span style="color: #aa0000">BEARISH</span>  |        <span style="color: #F5F1DE">80.0%</span> | <span style="color: #F5F1DE">AAPL's high leverage (D/E 1.34) and weak liquidity (current  |
-|                       |          |              | ratio 0.89) pose significant downside risks, outweighing the |
-|                       |          |              | benefits of its positive and improving FCF; insufficient     |
-|                       |          |              | valuation data prevents a comprehensive analysis, but the    |
-|                       |          |              | presence of a net debt position and high leverage already    |
-|                       |          |              | raises concerns about the company's ability to double        |
-|                       |          |              | capital in 2-3 years with low risk.</span>                          |
+| <span style="color: #00aaaa">Nassim Taleb</span>          | <span style="color: #aa0000">BEARISH</span>  |          <span style="color: #F5F1DE">40%</span> | <span style="color: #F5F1DE">Fragile balance sheet</span>                                        |
 +-----------------------+----------+--------------+--------------------------------------------------------------+
-| <span style="color: #00aaaa">Warren Buffett</span>        | <span style="color: #aa5500">NEUTRAL</span>  |          <span style="color: #F5F1DE">50%</span> | <span style="color: #F5F1DE">Insufficient data</span>                                            |
+| <span style="color: #00aaaa">Mohnish Pabrai</span>        | <span style="color: #aa0000">BEARISH</span>  |        <span style="color: #F5F1DE">80.0%</span> | <span style="color: #F5F1DE">The bearish signal is primarily driven by weak liquidity and |
+|                       |          |              | high leverage, which compromise downside protection.         |
+|                       |          |              | Although AAPL has a positive and improving FCF, the absence  |
+|                       |          |              | of sufficient valuation data and doubling potential analysis |
+|                       |          |              | prevents a comprehensive assessment. However, the presence   |
+|                       |          |              | of significant net cash and stable FCF is a positive, but    |
+|                       |          |              | it's overshadowed by the liquidity and leverage concerns,    |
+|                       |          |              | leading to a cautious stance.</span>                                |
++-----------------------+----------+--------------+--------------------------------------------------------------+
+| <span style="color: #00aaaa">Michael Burry</span>         | <span style="color: #aa0000">BEARISH</span>  |        <span style="color: #F5F1DE">80.0%</span> | <span style="color: #F5F1DE">High D/E 3.30. Net debt position. FCF and EV/EBIT data       |
+|                       |          |              | unavailable. Insiders buying 67,557 shares, but not enough   |
+|                       |          |              | to offset leverage concerns.</span>                                 |
++-----------------------+----------+--------------+--------------------------------------------------------------+
+| <span style="color: #00aaaa">Stanley Druckenmiller</span> | <span style="color: #aa0000">BEARISH</span>  |        <span style="color: #F5F1DE">60.0%</span> | <span style="color: #F5F1DE">AAPL's moderate annualized revenue growth of 4.2% is         |
+|                       |          |              | overshadowed by a lack of recent price momentum data, making |
+|                       |          |              | it challenging to assess the stock's trajectory. While the   |
+|                       |          |              | company exhibits strong annualized EPS growth of 10.3%, the  |
+|                       |          |              | risk-reward analysis is hindered by insufficient data, and   |
+|                       |          |              | valuation context is also unclear due to a lack of necessary |
+|                       |          |              | information. The sentiment analysis defaults to neutral due  |
+|                       |          |              | to no available news data. However, the insider activity,    |
+|                       |          |              | with 21 buys versus 29 sells, suggests a slight negative     |
+|                       |          |              | bias. Given these factors, the risk-reward proposition       |
+|                       |          |              | appears unfavorable, with limited upside potential and       |
+|                       |          |              | potential downside risks, especially considering the         |
+|                       |          |              | competitive landscape and lack of catalysts for significant  |
+|                       |          |              | price appreciation. Therefore, a bearish stance is           |
+|                       |          |              | warranted, albeit with moderate confidence due to the data   |
+|                       |          |              | limitations.</span>                                                 |
++-----------------------+----------+--------------+--------------------------------------------------------------+
+| <span style="color: #00aaaa">Aswath Damodaran</span>      | <span style="color: #aa5500">NEUTRAL</span>  |        <span style="color: #F5F1DE">60.0%</span> | <span style="color: #F5F1DE">AAPL's positive FCFF growth and high ROIC of 54.8% are       |
+|                       |          |              | offset by incomplete revenue data, a high debt-to-equity     |
+|                       |          |              | ratio of 3.3, and missing intrinsic value due to incomplete  |
+|                       |          |              | FCFF or share count data. The stock's valuation multiples,   |
+|                       |          |              | such as P/E and P/S ratios, are inline with historical       |
+|                       |          |              | values but do not provide a clear indication of              |
+|                       |          |              | undervaluation or overvaluation. Overall, the analysis       |
+|                       |          |              | suggests a neutral stance due to the balance of positive and |
+|                       |          |              | negative factors.</span>                                            |
++-----------------------+----------+--------------+--------------------------------------------------------------+
+
+<span style="color: #F5F1DE"></span><span style="font-weight: bold; color: #F5F1DE">TRADING DECISION:</span> [<span style="color: #00aaaa">AAPL</span>]
++------------+--------------------------+
+| Action     | <span style="color: #aa5500">HOLD</span>                     |
++------------+--------------------------+
+| Quantity   | <span style="color: #aa5500">0</span>                        |
++------------+--------------------------+
+| Confidence | <span style="color: #F5F1DE">100.0%</span>                   |
++------------+--------------------------+
+| Reasoning  | <span style="color: #F5F1DE">No valid trade available</span> |
++------------+--------------------------+
+</pre></div><div id="tab-GOOGL" class="tab-panel"><pre>
+<span style="color: #F5F1DE"></span><span style="font-weight: bold; color: #F5F1DE">AGENT ANALYSIS:</span> [<span style="color: #00aaaa">GOOGL</span>]
++-----------------------+----------+--------------+--------------------------------------------------------------+
+| <span style="color: #F5F1DE">Agent                 |  Signal  |   Confidence | Reasoning                                                    |
++=======================+==========+==============+==============================================================+
+| </span><span style="color: #00aaaa">Warren Buffett</span>        | <span style="color: #00aa00">BULLISH</span>  |          <span style="color: #F5F1DE">90%</span> | <span style="color: #F5F1DE">Strong ROE, durable moat</span>                                     |
++-----------------------+----------+--------------+--------------------------------------------------------------+
+| <span style="color: #00aaaa">Peter Lynch</span>           | <span style="color: #00aa00">BULLISH</span>  |        <span style="color: #F5F1DE">85.0%</span> | <span style="color: #F5F1DE">I love the story behind GOOGL - my kids can't get enough of  |
+|                       |          |              | YouTube and Google Search is the first thing they think of   |
+|                       |          |              | when they need to find something online. The growth numbers  |
+|                       |          |              | are outstanding, with a 31% increase in revenue and an 86.8% |
+|                       |          |              | jump in EPS. That's the kind of 'ten-bagger' potential I'm   |
+|                       |          |              | always on the lookout for. The PEG ratio might be a bit      |
+|                       |          |              | tricky to calculate without valuation data, but with strong  |
+|                       |          |              | fundamentals like low debt and a 39.6% operating margin, I'm |
+|                       |          |              | willing to bet on this one. Plus, insiders are buying        |
+|                       |          |              | heavily, which always catches my eye. The only downside is   |
+|                       |          |              | the lack of valuation data, but with such strong growth and  |
+|                       |          |              | a solid balance sheet, I'm willing to take a chance.         |
+|                       |          |              | Overall, I think GOOGL has the makings of a real winner.</span>     |
++-----------------------+----------+--------------+--------------------------------------------------------------+
+| <span style="color: #00aaaa">Nassim Taleb</span>          | <span style="color: #aa0000">BEARISH</span>  |          <span style="color: #F5F1DE">30%</span> | <span style="color: #F5F1DE">No skin in the game</span>                                          |
++-----------------------+----------+--------------+--------------------------------------------------------------+
+| <span style="color: #00aaaa">Mohnish Pabrai</span>        | <span style="color: #aa5500">NEUTRAL</span>  |        <span style="color: #F5F1DE">60.0%</span> | <span style="color: #F5F1DE">While GOOGL has a strong downside protection profile with a  |
+|                       |          |              | net debt position of $-28,583,000,000, strong liquidity, and |
+|                       |          |              | very low leverage, the lack of valuation and doubling        |
+|                       |          |              | potential data limits the analysis. The current bearish      |
+|                       |          |              | signal and insufficient data on free cash flow yield and     |
+|                       |          |              | normalized FCF make it challenging to assert a bullish or    |
+|                       |          |              | bearish stance with high confidence.</span>                         |
++-----------------------+----------+--------------+--------------------------------------------------------------+
+| <span style="color: #00aaaa">Michael Burry</span>         | <span style="color: #aa0000">BEARISH</span>  |        <span style="color: #F5F1DE">80.0%</span> | <span style="color: #F5F1DE">FCF data unavailable. EV/EBIT data unavailable. Low D/E 0.12 |
+|                       |          |              | but net insider selling. No recent news. Lack of value       |
+|                       |          |              | metrics and insider selling outweighs low leverage.</span>          |
++-----------------------+----------+--------------+--------------------------------------------------------------+
+| <span style="color: #00aaaa">Stanley Druckenmiller</span> | <span style="color: #aa5500">NEUTRAL</span>  |         <span style="color: #F5F1DE">0.0%</span> | <span style="color: #F5F1DE">Error in analysis, defaulting to neutral</span>                     |
++-----------------------+----------+--------------+--------------------------------------------------------------+
+| <span style="color: #00aaaa">Aswath Damodaran</span>      | <span style="color: #aa5500">NEUTRAL</span>  |        <span style="color: #F5F1DE">60.0%</span> | <span style="color: #F5F1DE">GOOGL's story is one of a company with a strong market       |
+|                       |          |              | position, but its financials are incomplete, making it       |
+|                       |          |              | difficult to estimate its intrinsic value. The metrics that  |
+|                       |          |              | are available suggest a high return on invested capital      |
+|                       |          |              | (41.6%) and a low debt to equity ratio (0.12), but the lack  |
+|                       |          |              | of revenue growth and earnings data makes it challenging to  |
+|                       |          |              | assess the company's future prospects. The relative          |
+|                       |          |              | valuation analysis suggests that the stock may be            |
+|                       |          |              | undervalued, but without a complete picture of the company's |
+|                       |          |              | financials, it's difficult to make a strong bullish or       |
+|                       |          |              | bearish case. Therefore, the signal is neutral, with a       |
+|                       |          |              | moderate confidence level of 60%.</span>                            |
++-----------------------+----------+--------------+--------------------------------------------------------------+
+
+<span style="color: #F5F1DE"></span><span style="font-weight: bold; color: #F5F1DE">TRADING DECISION:</span> [<span style="color: #00aaaa">GOOGL</span>]
++------------+--------------------------+
+| Action     | <span style="color: #aa5500">HOLD</span>                     |
++------------+--------------------------+
+| Quantity   | <span style="color: #aa5500">0</span>                        |
++------------+--------------------------+
+| Confidence | <span style="color: #F5F1DE">100.0%</span>                   |
++------------+--------------------------+
+| Reasoning  | <span style="color: #F5F1DE">No valid trade available</span> |
++------------+--------------------------+
+</pre></div><div id="tab-MSFT" class="tab-panel"><pre>
+<span style="color: #F5F1DE"></span><span style="font-weight: bold; color: #F5F1DE">AGENT ANALYSIS:</span> [<span style="color: #00aaaa">MSFT</span>]
++-----------------------+----------+--------------+--------------------------------------------------------------+
+| <span style="color: #F5F1DE">Agent                 |  Signal  |   Confidence | Reasoning                                                    |
++=======================+==========+==============+==============================================================+
+| </span><span style="color: #00aaaa">Warren Buffett</span>        | <span style="color: #00aa00">BULLISH</span>  |          <span style="color: #F5F1DE">90%</span> | <span style="color: #F5F1DE">Strong ROE, consistent earnings growth</span>                       |
++-----------------------+----------+--------------+--------------------------------------------------------------+
+| <span style="color: #00aaaa">Peter Lynch</span>           | <span style="color: #00aa00">BULLISH</span>  |        <span style="color: #F5F1DE">80.0%</span> | <span style="color: #F5F1DE">I like what I see with MSFT. The growth numbers are          |
+|                       |          |              | terrific, with revenue up 32.9% and EPS growing 40.9% -      |
+|                       |          |              | that's the kind of expansion that can lead to a ten-bagger.  |
+|                       |          |              | My kids love their Xbox and Office products, so I know the   |
+|                       |          |              | company has a strong presence in everyday life. The          |
+|                       |          |              | fundamentals are solid too, with low debt and a strong       |
+|                       |          |              | operating margin of 44.7%. The PEG ratio isn't available,    |
+|                       |          |              | but given the growth rates, I'd be willing to pay a bit of a |
+|                       |          |              | premium. The only caution is the neutral sentiment analysis, |
+|                       |          |              | but I think the strong growth and fundamentals will win out  |
+|                       |          |              | in the end. Overall, I'm bullish on MSFT.</span>                    |
++-----------------------+----------+--------------+--------------------------------------------------------------+
+| <span style="color: #00aaaa">Nassim Taleb</span>          | <span style="color: #aa0000">BEARISH</span>  |          <span style="color: #F5F1DE">30%</span> | <span style="color: #F5F1DE">Fragile due to high leverage and no skin in the game</span>         |
++-----------------------+----------+--------------+--------------------------------------------------------------+
+| <span style="color: #00aaaa">Mohnish Pabrai</span>        | <span style="color: #aa5500">NEUTRAL</span>  |         <span style="color: #F5F1DE">0.0%</span> | <span style="color: #F5F1DE">Error in analysis, defaulting to neutral</span>                     |
 +-----------------------+----------+--------------+--------------------------------------------------------------+
 | <span style="color: #00aaaa">Michael Burry</span>         | <span style="color: #aa5500">NEUTRAL</span>  |         <span style="color: #F5F1DE">0.0%</span> | <span style="color: #F5F1DE">Parsing error – defaulting to neutral</span>                        |
 +-----------------------+----------+--------------+--------------------------------------------------------------+
 | <span style="color: #00aaaa">Stanley Druckenmiller</span> | <span style="color: #aa5500">NEUTRAL</span>  |         <span style="color: #F5F1DE">0.0%</span> | <span style="color: #F5F1DE">Error in analysis, defaulting to neutral</span>                     |
 +-----------------------+----------+--------------+--------------------------------------------------------------+
-| <span style="color: #00aaaa">Peter Lynch</span>           | <span style="color: #aa5500">NEUTRAL</span>  |         <span style="color: #F5F1DE">0.0%</span> | <span style="color: #F5F1DE">Error in analysis; defaulting to neutral</span>                     |
-+-----------------------+----------+--------------+--------------------------------------------------------------+
-| <span style="color: #00aaaa">Nassim Taleb</span>          | <span style="color: #aa5500">NEUTRAL</span>  |          <span style="color: #F5F1DE">50%</span> | <span style="color: #F5F1DE">Insufficient data</span>                                            |
+| <span style="color: #00aaaa">Aswath Damodaran</span>      | <span style="color: #aa5500">NEUTRAL</span>  |         <span style="color: #F5F1DE">0.0%</span> | <span style="color: #F5F1DE">Parsing error; defaulting to neutral</span>                         |
 +-----------------------+----------+--------------+--------------------------------------------------------------+
 
-<span style="color: #F5F1DE"></span><span style="font-weight: bold; color: #F5F1DE">TRADING DECISION:</span> [<span style="color: #00aaaa">AAPL</span>]
-+------------+------------------------+
-| Action     | <span style="color: #aa5500">HOLD</span>                   |
-+------------+------------------------+
-| Quantity   | <span style="color: #aa5500">0</span>                      |
-+------------+------------------------+
-| Confidence | <span style="color: #F5F1DE">0.0%</span>                   |
-+------------+------------------------+
-| Reasoning  | <span style="color: #F5F1DE">Default decision: hold</span> |
-+------------+------------------------+
+<span style="color: #F5F1DE"></span><span style="font-weight: bold; color: #F5F1DE">TRADING DECISION:</span> [<span style="color: #00aaaa">MSFT</span>]
++------------+--------------------------+
+| Action     | <span style="color: #aa5500">HOLD</span>                     |
++------------+--------------------------+
+| Quantity   | <span style="color: #aa5500">0</span>                        |
++------------+--------------------------+
+| Confidence | <span style="color: #F5F1DE">100.0%</span>                   |
++------------+--------------------------+
+| Reasoning  | <span style="color: #F5F1DE">No valid trade available</span> |
++------------+--------------------------+
+</pre></div><div id="tab-NVDA" class="tab-panel"><pre>
+<span style="color: #F5F1DE"></span><span style="font-weight: bold; color: #F5F1DE">AGENT ANALYSIS:</span> [<span style="color: #00aaaa">NVDA</span>]
++-----------------------+----------+--------------+--------------------------------------------------------------+
+| <span style="color: #F5F1DE">Agent                 |  Signal  |   Confidence | Reasoning                                                    |
++=======================+==========+==============+==============================================================+
+| </span><span style="color: #00aaaa">Warren Buffett</span>        | <span style="color: #00aa00">BULLISH</span>  |          <span style="color: #F5F1DE">95%</span> | <span style="color: #F5F1DE">Strong fundamentals</span>                                          |
++-----------------------+----------+--------------+--------------------------------------------------------------+
+| <span style="color: #00aaaa">Peter Lynch</span>           | <span style="color: #00aa00">BULLISH</span>  |        <span style="color: #F5F1DE">85.0%</span> | <span style="color: #F5F1DE">I love the story behind NVDA, the kids these days can't get  |
+|                       |          |              | enough of their graphics cards and AI tech. With a growth    |
+|                       |          |              | score of 10, this company is showing some serious            |
+|                       |          |              | 'ten-bagger' potential - revenue growth of 254.4% and EPS    |
+|                       |          |              | growth of 307.4% is nothing to sneeze at. The fundamentals   |
+|                       |          |              | are solid too, low debt-to-equity of 0.07 and a strong       |
+|                       |          |              | operating margin of 65.6% tells me they're running a tight   |
+|                       |          |              | ship. Insider activity is also positive, with heavy buying   |
+|                       |          |              | from insiders. If I had to nitpick, the valuation data is a  |
+|                       |          |              | bit lacking, but with a strong growth profile and solid      |
+|                       |          |              | fundamentals, I'm willing to take a chance. NVDA's got the   |
+|                       |          |              | makings of a real winner, and I'm bullish on its prospects.</span>  |
++-----------------------+----------+--------------+--------------------------------------------------------------+
+| <span style="color: #00aaaa">Nassim Taleb</span>          | <span style="color: #00aa00">BULLISH</span>  |          <span style="color: #F5F1DE">80%</span> | <span style="color: #F5F1DE">Antifragile with convexity</span>                                   |
++-----------------------+----------+--------------+--------------------------------------------------------------+
+| <span style="color: #00aaaa">Mohnish Pabrai</span>        | <span style="color: #aa5500">NEUTRAL</span>  |        <span style="color: #F5F1DE">20.0%</span> | <span style="color: #F5F1DE">NVDA's strong liquidity, very low leverage, and positive FCF |
+|                       |          |              | provide good downside protection, but lack of valuation and  |
+|                       |          |              | doubling potential data limits confidence in making a        |
+|                       |          |              | bullish or bearish call; insufficient data to assess FCF     |
+|                       |          |              | yield and normalized FCF, making it difficult to evaluate    |
+|                       |          |              | the company's valuations and potential for doubling capital.</span> |
++-----------------------+----------+--------------+--------------------------------------------------------------+
+| <span style="color: #00aaaa">Michael Burry</span>         | <span style="color: #00aa00">BULLISH</span>  |        <span style="color: #F5F1DE">60.0%</span> | <span style="color: #F5F1DE">Low D/E 0.32. Net insider buying 61,609,472 shares. Lack of  |
+|                       |          |              | FCF and EV/EBIT data limits conviction.</span>                      |
++-----------------------+----------+--------------+--------------------------------------------------------------+
+| <span style="color: #00aaaa">Stanley Druckenmiller</span> | <span style="color: #00aa00">BULLISH</span>  |        <span style="color: #F5F1DE">85.0%</span> | <span style="color: #F5F1DE">The company shows exceptional momentum with revenue          |
+|                       |          |              | accelerating from prior years to 88.3% YoY and EPS growth of |
+|                       |          |              | 101.9% YoY. Although there's insufficient recent price data  |
+|                       |          |              | for momentum analysis, the strong growth metrics are         |
+|                       |          |              | compelling. Heavy insider buying with 48 buys vs. 2 sells    |
+|                       |          |              | provides a supportive signal. Given the strong growth        |
+|                       |          |              | prospects and insider activity, I'm willing to overlook the  |
+|                       |          |              | lack of valuation and risk-reward data. The risk-reward      |
+|                       |          |              | profile is expected to be highly asymmetric with significant |
+|                       |          |              | upside potential driven by the company's dominance in its    |
+|                       |          |              | space and strong financials. I'm seeing a favorable setup    |
+|                       |          |              | with limited downside risk, driven by the company's strong   |
+|                       |          |              | balance sheet and growth trajectory.</span>                         |
++-----------------------+----------+--------------+--------------------------------------------------------------+
+| <span style="color: #00aaaa">Aswath Damodaran</span>      | <span style="color: #00aa00">BULLISH</span>  |        <span style="color: #F5F1DE">70.0%</span> | <span style="color: #F5F1DE">NVIDIA's (NVDA) high return on invested capital (119.7%),    |
+|                       |          |              | positive free cash flow growth (25.03%), and strong revenue  |
+|                       |          |              | growth (15.39%) indicate a promising outlook. Although the   |
+|                       |          |              | company's high price-to-earnings ratio (37.98) and           |
+|                       |          |              | price-to-sales ratio (21.12) may raise concerns, its         |
+|                       |          |              | interest coverage ratio (547.14) and low debt-to-equity      |
+|                       |          |              | ratio (0.315) suggest a stable financial position. With a    |
+|                       |          |              | margin of safety not explicitly quantifiable due to missing  |
+|                       |          |              | data, the intrinsic value analysis is incomplete. However,   |
+|                       |          |              | relative valuation sanity checks and the company's growth    |
+|                       |          |              | prospects support a bullish signal.</span>                          |
++-----------------------+----------+--------------+--------------------------------------------------------------+
+
+<span style="color: #F5F1DE"></span><span style="font-weight: bold; color: #F5F1DE">TRADING DECISION:</span> [<span style="color: #00aaaa">NVDA</span>]
++------------+--------------------------+
+| Action     | <span style="color: #aa5500">HOLD</span>                     |
++------------+--------------------------+
+| Quantity   | <span style="color: #aa5500">0</span>                        |
++------------+--------------------------+
+| Confidence | <span style="color: #F5F1DE">100.0%</span>                   |
++------------+--------------------------+
+| Reasoning  | <span style="color: #F5F1DE">No valid trade available</span> |
++------------+--------------------------+
+</pre></div><div id="tab-TSLA" class="tab-panel"><pre>
+<span style="color: #F5F1DE"></span><span style="font-weight: bold; color: #F5F1DE">AGENT ANALYSIS:</span> [<span style="color: #00aaaa">TSLA</span>]
++-----------------------+----------+--------------+--------------------------------------------------------------+
+| <span style="color: #F5F1DE">Agent                 |  Signal  |   Confidence | Reasoning                                                    |
++=======================+==========+==============+==============================================================+
+| </span><span style="color: #00aaaa">Warren Buffett</span>        | <span style="color: #aa0000">BEARISH</span>  |          <span style="color: #F5F1DE">20%</span> | <span style="color: #F5F1DE">Weak fundamentals</span>                                            |
++-----------------------+----------+--------------+--------------------------------------------------------------+
+| <span style="color: #00aaaa">Peter Lynch</span>           | <span style="color: #aa0000">BEARISH</span>  |        <span style="color: #F5F1DE">70.0%</span> | <span style="color: #F5F1DE">I'm not too keen on TSLA right now, folks. The growth        |
+|                       |          |              | analysis is a major red flag, with flat or negative revenue  |
+|                       |          |              | growth and a whopping -75.1% EPS growth. That's not exactly  |
+|                       |          |              | the kind of 'ten-bagger' potential I'm looking for. Now, I   |
+|                       |          |              | will say the fundamentals analysis shows some positives,     |
+|                       |          |              | like low debt-to-equity and positive free cash flow, but     |
+|                       |          |              | that's not enough to outweigh the negatives. The PEG ratio   |
+|                       |          |              | isn't even available due to insufficient data, which makes   |
+|                       |          |              | me a bit uneasy. My kids might love Tesla cars, but as an    |
+|                       |          |              | investor, I need to see some real growth and a better story  |
+|                       |          |              | behind the stock. For now, I'm bearish on TSLA.</span>              |
++-----------------------+----------+--------------+--------------------------------------------------------------+
+| <span style="color: #00aaaa">Nassim Taleb</span>          | <span style="color: #aa5500">NEUTRAL</span>  |          <span style="color: #F5F1DE">50%</span> | <span style="color: #F5F1DE">Mixed signals</span>                                                |
++-----------------------+----------+--------------+--------------------------------------------------------------+
+| <span style="color: #00aaaa">Mohnish Pabrai</span>        | <span style="color: #00aa00">BULLISH</span>  |        <span style="color: #F5F1DE">80.0%</span> | <span style="color: #F5F1DE">TSLA presents an attractive investment opportunity with its  |
+|                       |          |              | strong downside protection, as evidenced by its net cash     |
+|                       |          |              | position of $8,137,000,000, robust liquidity with a current  |
+|                       |          |              | ratio of 2.16, and very low leverage with a debt-to-equity   |
+|                       |          |              | ratio of 0.10. While the provided data lacks specific        |
+|                       |          |              | figures for free cash flow yield and doubling potential,     |
+|                       |          |              | TSLA's positive and improving/stable free cash flow,         |
+|                       |          |              | combined with its strong financial health, suggests a        |
+|                       |          |              | resilient business model. Given the emphasis on capital      |
+|                       |          |              | preservation and the potential for mispricing, TSLA's        |
+|                       |          |              | neutral signal may underestimate its true value, thus        |
+|                       |          |              | warranting a bullish outlook.</span>                                |
++-----------------------+----------+--------------+--------------------------------------------------------------+
+| <span style="color: #00aaaa">Michael Burry</span>         | <span style="color: #aa5500">NEUTRAL</span>  |        <span style="color: #F5F1DE">40.0%</span> | <span style="color: #F5F1DE">FCF yield and EV/EBIT data unavailable. Moderate D/E 0.67.   |
+|                       |          |              | Net insider buying of 95,960,681 shares. Neutral due to lack |
+|                       |          |              | of value analysis data.</span>                                      |
++-----------------------+----------+--------------+--------------------------------------------------------------+
+| <span style="color: #00aaaa">Stanley Druckenmiller</span> | <span style="color: #aa0000">BEARISH</span>  |        <span style="color: #F5F1DE">80.0%</span> | <span style="color: #F5F1DE">TSLA shows minimal to negative revenue and earnings growth,  |
+|                       |          |              | with -1.0% and -50.1% annualized growth rates respectively.  |
+|                       |          |              | The lack of momentum and negative growth metrics make the    |
+|                       |          |              | risk-reward profile unfavorable. Despite moderate insider    |
+|                       |          |              | buying, the overall analysis suggests limited upside         |
+|                       |          |              | potential and significant downside risk. In contrast, other  |
+|                       |          |              | companies like NVDA and GOOGL exhibit strong revenue and     |
+|                       |          |              | earnings growth, making them more attractive opportunities.  |
+|                       |          |              | I'm avoiding TSLA due to its unimpressive growth and         |
+|                       |          |              | momentum profile.</span>                                            |
++-----------------------+----------+--------------+--------------------------------------------------------------+
+| <span style="color: #00aaaa">Aswath Damodaran</span>      | <span style="color: #aa0000">BEARISH</span>  |        <span style="color: #F5F1DE">70.0%</span> | <span style="color: #F5F1DE">The company's high price-to-earnings ratio of 394.2,         |
+|                       |          |              | compared to its median of 182.8, suggests overvaluation.     |
+|                       |          |              | Additionally, negative revenue and earnings growth rates,    |
+|                       |          |              | along with a low return on equity of 4.8%, raise concerns    |
+|                       |          |              | about the company's ability to generate profits and justify  |
+|                       |          |              | its current valuation.</span>                                       |
++-----------------------+----------+--------------+--------------------------------------------------------------+
+
+<span style="color: #F5F1DE"></span><span style="font-weight: bold; color: #F5F1DE">TRADING DECISION:</span> [<span style="color: #00aaaa">TSLA</span>]
++------------+--------------------------+
+| Action     | <span style="color: #aa5500">HOLD</span>                     |
++------------+--------------------------+
+| Quantity   | <span style="color: #aa5500">0</span>                        |
++------------+--------------------------+
+| Confidence | <span style="color: #F5F1DE">100.0%</span>                   |
++------------+--------------------------+
+| Reasoning  | <span style="color: #F5F1DE">No valid trade available</span> |
++------------+--------------------------+
 </pre></div>
   <script>
     function showTab(e, id) {
